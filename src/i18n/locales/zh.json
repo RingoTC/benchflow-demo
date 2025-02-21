@@ -1,0 +1,7 @@
+{
+  "welcome": "欢迎使用 React",
+  "description": "编辑 src/App.tsx 并保存以重新加载",
+  "learn": "学习 React",
+  "language": "语言",
+  "switchLanguage": "切换到英文"
+} 
