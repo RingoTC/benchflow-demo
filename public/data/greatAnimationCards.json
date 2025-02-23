@@ -3,7 +3,7 @@
     "title": "WebArena",
     "description": "A benchmark for evaluating LLMs on web-based interaction tasks, testing their ability to navigate and interact with real-world websites.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "UCLA"
     },
     "benchmarkUrl": "https://webarena.dev"
@@ -12,7 +12,7 @@
     "title": "MLE-Bench",
     "description": "A benchmark for measuring how well AI agents perform at machine learning engineering tasks.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "Microsoft Research"
     },
     "benchmarkUrl": "https://github.com/microsoft/mle-bench"
@@ -21,7 +21,7 @@
     "title": "SWE-bench",
     "description": "A benchmark for evaluating LLMs on real-world software engineering tasks from GitHub pull requests.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "Carnegie Mellon University"
     },
     "benchmarkUrl": "https://github.com/princeton-nlp/SWE-bench",
@@ -31,7 +31,7 @@
     "title": "SWE-bench Multimodal",
     "description": "An extension of SWE-bench that includes multimodal software engineering tasks involving code, images, and documentation.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "Carnegie Mellon University"
     },
     "benchmarkUrl": "https://github.com/princeton-nlp/SWE-bench"
@@ -40,7 +40,7 @@
     "title": "AgentBench",
     "description": "A comprehensive benchmark for evaluating LLM-powered agents across various real-world scenarios and tasks.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "Tsinghua University"
     },
     "benchmarkUrl": "https://github.com/THUDM/AgentBench",
@@ -50,7 +50,7 @@
     "title": "Tau (𝜏)-Bench",
     "description": "A benchmark focusing on evaluating language models' tool-use capabilities across diverse scenarios.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "Microsoft Research"
     },
     "benchmarkUrl": "https://github.com/microsoft/tau-bench",
@@ -60,7 +60,7 @@
     "title": "BIRD-SQL",
     "description": "A large-scale cross-domain SQL benchmark for testing text-to-SQL capabilities of language models.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "ByteDance AI Lab"
     },
     "benchmarkUrl": "https://github.com/AlibabaResearch/DAMO-ConvAI/tree/main/bird"
@@ -69,7 +69,7 @@
     "title": "LegalBench",
     "description": "A comprehensive benchmark for evaluating legal reasoning and understanding capabilities of language models.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "Stanford Law School"
     },
     "benchmarkUrl": "https://github.com/HazyResearch/legalbench"
@@ -78,7 +78,7 @@
     "title": "GLUE",
     "description": "General Language Understanding Evaluation benchmark, a collection of diverse natural language understanding tasks.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "NYU & UW & DeepMind"
     },
     "benchmarkUrl": "https://gluebenchmark.com"
@@ -87,7 +87,7 @@
     "title": "MS MARCO",
     "description": "A large-scale dataset for machine reading comprehension and question answering.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "Microsoft Research"
     },
     "benchmarkUrl": "https://microsoft.github.io/msmarco/"
@@ -96,7 +96,7 @@
     "title": "Stanford HELM",
     "description": "Holistic Evaluation of Language Models - a framework for rigorous and comprehensive language model evaluation.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "Stanford University"
     },
     "benchmarkUrl": "https://crfm.stanford.edu/helm"
@@ -105,7 +105,7 @@
     "title": "API-Bank",
     "description": "A benchmark for evaluating language models' ability to understand and use various APIs effectively.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "Microsoft Research"
     },
     "benchmarkUrl": "https://github.com/microsoft/api-bank"
@@ -114,7 +114,7 @@
     "title": "ARC",
     "description": "AI2 Reasoning Challenge - a question answering dataset testing reasoning capabilities.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "Allen Institute for AI"
     },
     "benchmarkUrl": "https://allenai.org/data/arc"
@@ -123,7 +123,7 @@
     "title": "HellaSwag",
     "description": "A challenge dataset for evaluating commonsense inference in models.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "University of Washington"
     },
     "benchmarkUrl": "https://rowanzellers.com/hellaswag"
@@ -132,7 +132,7 @@
     "title": "HumanEval",
     "description": "A benchmark for evaluating language models on Python programming tasks.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "OpenAI"
     },
     "benchmarkUrl": "https://github.com/openai/human-eval"
@@ -141,7 +141,7 @@
     "title": "MMLU",
     "description": "Massive Multitask Language Understanding, testing knowledge across 57 subjects.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "EleutherAI"
     },
     "benchmarkUrl": "https://github.com/hendrycks/test"
@@ -150,7 +150,7 @@
     "title": "SuperGLUE",
     "description": "A more difficult extension of GLUE with more challenging language understanding tasks.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "NYU & UW & DeepMind"
     },
     "benchmarkUrl": "https://super.gluebenchmark.com"
@@ -159,7 +159,7 @@
     "title": "WebArena",
     "description": "A benchmark for evaluating LLMs on web-based interaction tasks, testing their ability to navigate and interact with real-world websites.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "UCLA"
     },
     "benchmarkUrl": "https://webarena.dev"
@@ -168,7 +168,7 @@
     "title": "MLE-Bench",
     "description": "A benchmark for measuring how well AI agents perform at machine learning engineering tasks.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "Microsoft Research"
     },
     "benchmarkUrl": "https://github.com/microsoft/mle-bench"
@@ -177,7 +177,7 @@
     "title": "SWE-bench",
     "description": "A benchmark for evaluating LLMs on real-world software engineering tasks from GitHub pull requests.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "Carnegie Mellon University"
     },
     "benchmarkUrl": "https://github.com/princeton-nlp/SWE-bench"
@@ -186,7 +186,7 @@
     "title": "SWE-bench Multimodal",
     "description": "An extension of SWE-bench that includes multimodal software engineering tasks involving code, images, and documentation.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "Carnegie Mellon University"
     },
     "benchmarkUrl": "https://github.com/princeton-nlp/SWE-bench"
@@ -195,7 +195,7 @@
     "title": "AgentBench",
     "description": "A comprehensive benchmark for evaluating LLM-powered agents across various real-world scenarios and tasks.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "Tsinghua University"
     },
     "benchmarkUrl": "https://github.com/THUDM/AgentBench"
@@ -204,7 +204,7 @@
     "title": "Tau (𝜏)-Bench",
     "description": "A benchmark focusing on evaluating language models' tool-use capabilities across diverse scenarios.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "Microsoft Research"
     },
     "benchmarkUrl": "https://github.com/microsoft/tau-bench"
@@ -213,7 +213,7 @@
     "title": "BIRD-SQL",
     "description": "A large-scale cross-domain SQL benchmark for testing text-to-SQL capabilities of language models.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "ByteDance AI Lab"
     },
     "benchmarkUrl": "https://github.com/AlibabaResearch/DAMO-ConvAI/tree/main/bird"
@@ -222,7 +222,7 @@
     "title": "LegalBench",
     "description": "A comprehensive benchmark for evaluating legal reasoning and understanding capabilities of language models.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "Stanford Law School"
     },
     "benchmarkUrl": "https://github.com/HazyResearch/legalbench"
@@ -231,7 +231,7 @@
     "title": "GLUE",
     "description": "General Language Understanding Evaluation benchmark, a collection of diverse natural language understanding tasks.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "NYU & UW & DeepMind"
     },
     "benchmarkUrl": "https://gluebenchmark.com"
@@ -240,7 +240,7 @@
     "title": "MS MARCO",
     "description": "A large-scale dataset for machine reading comprehension and question answering.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "Microsoft Research"
     },
     "benchmarkUrl": "https://microsoft.github.io/msmarco/"
@@ -249,7 +249,7 @@
     "title": "Stanford HELM",
     "description": "Holistic Evaluation of Language Models - a framework for rigorous and comprehensive language model evaluation.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "Stanford University"
     },
     "benchmarkUrl": "https://crfm.stanford.edu/helm"
@@ -258,7 +258,7 @@
     "title": "API-Bank",
     "description": "A benchmark for evaluating language models' ability to understand and use various APIs effectively.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "Microsoft Research"
     },
     "benchmarkUrl": "https://github.com/microsoft/api-bank"
@@ -267,7 +267,7 @@
     "title": "ARC",
     "description": "AI2 Reasoning Challenge - a question answering dataset testing reasoning capabilities.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "Allen Institute for AI"
     },
     "benchmarkUrl": "https://allenai.org/data/arc",
@@ -277,7 +277,7 @@
     "title": "HellaSwag",
     "description": "A challenge dataset for evaluating commonsense inference in models.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "University of Washington"
     },
     "benchmarkUrl": "https://rowanzellers.com/hellaswag"
@@ -286,7 +286,7 @@
     "title": "HumanEval",
     "description": "A benchmark for evaluating language models on Python programming tasks.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "OpenAI"
     },
     "benchmarkUrl": "https://github.com/openai/human-eval"
@@ -295,7 +295,7 @@
     "title": "MMLU",
     "description": "Massive Multitask Language Understanding, testing knowledge across 57 subjects.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "EleutherAI"
     },
     "benchmarkUrl": "https://github.com/hendrycks/test"
@@ -304,7 +304,7 @@
     "title": "WebArena",
     "description": "A benchmark for evaluating LLMs on web-based interaction tasks, testing their ability to navigate and interact with real-world websites.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "UCLA"
     },
     "benchmarkUrl": "https://webarena.dev"
@@ -313,7 +313,7 @@
     "title": "MLE-Bench",
     "description": "A benchmark for measuring how well AI agents perform at machine learning engineering tasks.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "Microsoft Research"
     },
     "benchmarkUrl": "https://github.com/microsoft/mle-bench"
@@ -322,7 +322,7 @@
     "title": "SWE-bench",
     "description": "A benchmark for evaluating LLMs on real-world software engineering tasks from GitHub pull requests.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "Carnegie Mellon University"
     },
     "benchmarkUrl": "https://github.com/princeton-nlp/SWE-bench",
@@ -332,7 +332,7 @@
     "title": "SWE-bench Multimodal",
     "description": "An extension of SWE-bench that includes multimodal software engineering tasks involving code, images, and documentation.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "Carnegie Mellon University"
     },
     "benchmarkUrl": "https://github.com/princeton-nlp/SWE-bench"
@@ -341,7 +341,7 @@
     "title": "AgentBench",
     "description": "A comprehensive benchmark for evaluating LLM-powered agents across various real-world scenarios and tasks.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "Tsinghua University"
     },
     "benchmarkUrl": "https://github.com/THUDM/AgentBench",
@@ -351,7 +351,7 @@
     "title": "Tau (𝜏)-Bench",
     "description": "A benchmark focusing on evaluating language models' tool-use capabilities across diverse scenarios.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "Microsoft Research"
     },
     "benchmarkUrl": "https://github.com/microsoft/tau-bench",
@@ -361,7 +361,7 @@
     "title": "BIRD-SQL",
     "description": "A large-scale cross-domain SQL benchmark for testing text-to-SQL capabilities of language models.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "ByteDance AI Lab"
     },
     "benchmarkUrl": "https://github.com/AlibabaResearch/DAMO-ConvAI/tree/main/bird"
@@ -370,7 +370,7 @@
     "title": "LegalBench",
     "description": "A comprehensive benchmark for evaluating legal reasoning and understanding capabilities of language models.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "Stanford Law School"
     },
     "benchmarkUrl": "https://github.com/HazyResearch/legalbench"
@@ -379,7 +379,7 @@
     "title": "GLUE",
     "description": "General Language Understanding Evaluation benchmark, a collection of diverse natural language understanding tasks.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "NYU & UW & DeepMind"
     },
     "benchmarkUrl": "https://gluebenchmark.com"
@@ -388,7 +388,7 @@
     "title": "MS MARCO",
     "description": "A large-scale dataset for machine reading comprehension and question answering.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "Microsoft Research"
     },
     "benchmarkUrl": "https://microsoft.github.io/msmarco/"
@@ -397,7 +397,7 @@
     "title": "Stanford HELM",
     "description": "Holistic Evaluation of Language Models - a framework for rigorous and comprehensive language model evaluation.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "Stanford University"
     },
     "benchmarkUrl": "https://crfm.stanford.edu/helm"
@@ -406,7 +406,7 @@
     "title": "API-Bank",
     "description": "A benchmark for evaluating language models' ability to understand and use various APIs effectively.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "Microsoft Research"
     },
     "benchmarkUrl": "https://github.com/microsoft/api-bank"
@@ -415,7 +415,7 @@
     "title": "ARC",
     "description": "AI2 Reasoning Challenge - a question answering dataset testing reasoning capabilities.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "Allen Institute for AI"
     },
     "benchmarkUrl": "https://allenai.org/data/arc"
@@ -424,7 +424,7 @@
     "title": "HellaSwag",
     "description": "A challenge dataset for evaluating commonsense inference in models.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "University of Washington"
     },
     "benchmarkUrl": "https://rowanzellers.com/hellaswag"
@@ -433,7 +433,7 @@
     "title": "HumanEval",
     "description": "A benchmark for evaluating language models on Python programming tasks.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "OpenAI"
     },
     "benchmarkUrl": "https://github.com/openai/human-eval"
@@ -442,7 +442,7 @@
     "title": "MMLU",
     "description": "Massive Multitask Language Understanding, testing knowledge across 57 subjects.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "EleutherAI"
     },
     "benchmarkUrl": "https://github.com/hendrycks/test"
@@ -451,7 +451,7 @@
     "title": "SuperGLUE",
     "description": "A more difficult extension of GLUE with more challenging language understanding tasks.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "NYU & UW & DeepMind"
     },
     "benchmarkUrl": "https://super.gluebenchmark.com"
@@ -460,7 +460,7 @@
     "title": "WebArena",
     "description": "A benchmark for evaluating LLMs on web-based interaction tasks, testing their ability to navigate and interact with real-world websites.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "UCLA"
     },
     "benchmarkUrl": "https://webarena.dev"
@@ -469,7 +469,7 @@
     "title": "MLE-Bench",
     "description": "A benchmark for measuring how well AI agents perform at machine learning engineering tasks.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "Microsoft Research"
     },
     "benchmarkUrl": "https://github.com/microsoft/mle-bench"
@@ -478,7 +478,7 @@
     "title": "SWE-bench",
     "description": "A benchmark for evaluating LLMs on real-world software engineering tasks from GitHub pull requests.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "Carnegie Mellon University"
     },
     "benchmarkUrl": "https://github.com/princeton-nlp/SWE-bench",
@@ -488,7 +488,7 @@
     "title": "SWE-bench Multimodal",
     "description": "An extension of SWE-bench that includes multimodal software engineering tasks involving code, images, and documentation.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "Carnegie Mellon University"
     },
     "benchmarkUrl": "https://github.com/princeton-nlp/SWE-bench"
@@ -497,7 +497,7 @@
     "title": "AgentBench",
     "description": "A comprehensive benchmark for evaluating LLM-powered agents across various real-world scenarios and tasks.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "Tsinghua University"
     },
     "benchmarkUrl": "https://github.com/THUDM/AgentBench",
@@ -507,7 +507,7 @@
     "title": "Tau (𝜏)-Bench",
     "description": "A benchmark focusing on evaluating language models' tool-use capabilities across diverse scenarios.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "Microsoft Research"
     },
     "benchmarkUrl": "https://github.com/microsoft/tau-bench"
@@ -516,7 +516,7 @@
     "title": "BIRD-SQL",
     "description": "A large-scale cross-domain SQL benchmark for testing text-to-SQL capabilities of language models.",
     "organization": {
-      "icon": "/data/logo/OpenAI.png",
+      "icon": "./data/logo/OpenAI.png",
       "name": "ByteDance AI Lab"
     },
     "benchmarkUrl": "https://github.com/AlibabaResearch/DAMO-ConvAI/tree/main/bird"
