@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import './BenchmarkCard.css';
 
 export interface BenchmarkCardProps {
@@ -24,19 +24,27 @@ const BenchmarkCard: React.FC<BenchmarkCardProps> = ({
   const [isHovered, setIsHovered] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
 
-  const handleMouseEnter = () => {
+  const handleMouseEnter = useCallback(() => {
     if (highlight) {
       setIsHovered(true);
       onExpand?.(true);
     }
-  };
+  }, [highlight, onExpand]);
 
-  const handleMouseLeave = () => {
+  const handleMouseLeave = useCallback(() => {
     if (highlight) {
       setIsHovered(false);
       onExpand?.(false);
     }
-  };
+  }, [highlight, onExpand]);
+
+  const handleKeyPress = useCallback((event: React.KeyboardEvent) => {
+    if (highlight && (event.key === 'Enter' || event.key === ' ')) {
+      event.preventDefault();
+      setIsHovered(!isHovered);
+      onExpand?.(!isHovered);
+    }
+  }, [highlight, isHovered, onExpand]);
 
   if (!highlight) {
     return (
@@ -45,6 +53,7 @@ const BenchmarkCard: React.FC<BenchmarkCardProps> = ({
         className="benchmark-card__text-link"
         target="_blank"
         rel="noopener noreferrer"
+        aria-label={`View ${title} benchmark`}
       >
         {title}
       </a>
@@ -52,12 +61,19 @@ const BenchmarkCard: React.FC<BenchmarkCardProps> = ({
   }
 
   return (
-    <div className="benchmark-card-container">
+    <div 
+      className="benchmark-card-container"
+      role="article"
+      aria-expanded={isHovered}
+    >
       <div 
         ref={cardRef}
         className={`benchmark-card ${isHovered ? 'expanded' : ''}`}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
+        onKeyPress={handleKeyPress}
+        tabIndex={0}
+        aria-label={`${title} benchmark card`}
       >
         <div className="benchmark-card__content">
           <div className="benchmark-card__header">
@@ -65,7 +81,10 @@ const BenchmarkCard: React.FC<BenchmarkCardProps> = ({
           </div>
         </div>
 
-        <div className="benchmark-card__expanded-content">
+        <div 
+          className="benchmark-card__expanded-content"
+          aria-hidden={!isHovered}
+        >
           <div className="benchmark-card__header">
             <h2 className="benchmark-card__title">{title}</h2>
             <a 
@@ -73,7 +92,7 @@ const BenchmarkCard: React.FC<BenchmarkCardProps> = ({
               className="benchmark-card__link"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="View benchmark details"
+              aria-label={`View ${title} benchmark details`}
             />
           </div>
           
@@ -85,6 +104,7 @@ const BenchmarkCard: React.FC<BenchmarkCardProps> = ({
                 src={organization.icon} 
                 alt={`${organization.name} icon`}
                 className="benchmark-card__organization-icon" 
+                loading="lazy"
               />
               <span className="benchmark-card__organization-name">
                 {organization.name}
@@ -97,4 +117,4 @@ const BenchmarkCard: React.FC<BenchmarkCardProps> = ({
   );
 };
 
-export default BenchmarkCard; 
+export default React.memo(BenchmarkCard); 

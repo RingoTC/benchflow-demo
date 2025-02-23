@@ -1,9 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import BenchmarkCard, { BenchmarkCardProps } from './BenchmarkCard';
 import './BenchmarkWall.css';
 
 type Benchmark = Omit<BenchmarkCardProps, 'position'>;
+
+// Configuration constants
+const TOTAL_ROWS = 6;
+const WIDE_ROW_INDICES = [1, 4];
+const BASE_ITEMS_MULTIPLIER = 1.33;
 
 const BenchmarkWall: React.FC = () => {
   const { t } = useTranslation();
@@ -12,87 +17,115 @@ const BenchmarkWall: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
+  // Calculate row configuration
+  const rowConfig = useMemo(() => {
+    const baseItemsPerRow = Math.floor(benchmarks.length / TOTAL_ROWS);
+    const extraItemsForWideRow = Math.floor(baseItemsPerRow * BASE_ITEMS_MULTIPLIER);
+
+    return {
+      baseItemsPerRow,
+      extraItemsForWideRow,
+      getRowBounds: (rowIndex: number) => {
+        let startIndex = 0;
+        let currentIndex = 0;
+
+        for (let i = 0; i < rowIndex; i++) {
+          currentIndex += WIDE_ROW_INDICES.includes(i) ? extraItemsForWideRow : baseItemsPerRow;
+        }
+        startIndex = currentIndex;
+        currentIndex += WIDE_ROW_INDICES.includes(rowIndex) ? extraItemsForWideRow : baseItemsPerRow;
+
+        return {
+          start: startIndex,
+          end: Math.min(currentIndex, benchmarks.length)
+        };
+      }
+    };
+  }, [benchmarks.length]);
+
+  // Memoize the grid content
+  const gridContent = useMemo(() => {
+    if (loading || error) {
+      return null;
+    }
+
+    return Array.from({ length: TOTAL_ROWS }, (_, rowIndex) => {
+      const { start, end } = rowConfig.getRowBounds(rowIndex);
+      const rowItems = benchmarks.slice(start, end);
+      const isWideRow = WIDE_ROW_INDICES.includes(rowIndex);
+
+      return (
+        <React.Fragment key={`row-${rowIndex}`}>
+          <div 
+            className={`benchmark-wall__row${isWideRow ? '--wide' : ''}`}
+            role="row"
+          >
+            {rowItems.map((benchmark, index) => (
+              <div
+                key={`${benchmark.title}-${start + index}`}
+                className={`benchmark-wall__item ${expandedIndex === (start + index) ? 'expanding' : ''}`}
+                role="gridcell"
+              >
+                <BenchmarkCard 
+                  {...benchmark}
+                  onExpand={(expanded) => setExpandedIndex(expanded ? (start + index) : null)}
+                />
+              </div>
+            ))}
+          </div>
+          {rowIndex === 2 && <div className="benchmark-wall__grid-gap" role="presentation" />}
+        </React.Fragment>
+      );
+    });
+  }, [benchmarks, expandedIndex, rowConfig, loading, error]);
+
   useEffect(() => {
     const fetchBenchmarks = async () => {
       try {
         const response = await fetch('/data/greatAnimationCards.json');
         if (!response.ok) {
-          throw new Error('Failed to fetch benchmarks');
+          throw new Error(t('FetchError'));
         }
         const data: Benchmark[] = await response.json();
         setBenchmarks(data);
       } catch (err) {
-        setError(err instanceof Error ? err.message : 'An error occurred');
+        setError(err instanceof Error ? err.message : t('UnknownError'));
       } finally {
         setLoading(false);
       }
     };
 
     fetchBenchmarks();
-  }, []);
+  }, [t]);
 
-  if (loading) {
-    return <div className="benchmark-wall__loading">Loading benchmarks...</div>;
-  }
 
+  // Render error state
   if (error) {
-    return <div className="benchmark-wall__error">{error}</div>;
+    return (
+      <div className="benchmark-wall" role="alert">
+        <div className="benchmark-wall__error">
+          <p>{error}</p>
+          <button 
+            onClick={() => {
+              setError(null);
+              setLoading(true);
+            }}
+            className="benchmark-wall__retry-button"
+          >
+            {t('Retry')}
+          </button>
+        </div>
+      </div>
+    );
   }
-
-  // 计算每行应该显示的元素数量
-  const baseItemsPerRow = Math.floor(benchmarks.length / 6); // 基础每行元素数
-  const extraItemsForWideRow = Math.floor(baseItemsPerRow * 1.33); // 宽行的元素数（增加33%）
-
-  // 计算每行的起始和结束索引
-  const getRowBounds = (rowIndex: number) => {
-    let startIndex = 0;
-    let currentIndex = 0;
-
-    for (let i = 0; i < rowIndex; i++) {
-      currentIndex += (i === 1 || i === 4) ? extraItemsForWideRow : baseItemsPerRow;
-    }
-    startIndex = currentIndex;
-    currentIndex += (rowIndex === 1 || rowIndex === 4) ? extraItemsForWideRow : baseItemsPerRow;
-
-    return {
-      start: startIndex,
-      end: Math.min(currentIndex, benchmarks.length)
-    };
-  };
 
   return (
     <div className="benchmark-wall">
-      <div className="benchmark-wall__title">
+      <div className="benchmark-wall__title" role="heading" aria-level={1}>
         <span>{t('FindTheRightBenchmark')}</span>
       </div>
-      <div className="benchmark-wall__grid">
-        {Array.from({ length: 6 }, (_, rowIndex) => {
-          const { start, end } = getRowBounds(rowIndex);
-          const rowItems = benchmarks.slice(start, end);
-
-          return (
-            <>
-              <div 
-                key={`row-${rowIndex}`}
-                className={`benchmark-wall__row${rowIndex === 1 || rowIndex === 4 ? '--wide' : ''}`}
-              >
-                {rowItems.map((benchmark, index) => (
-                  <div
-                    key={`${benchmark.title}-${start + index}`}
-                    className={`benchmark-wall__item ${expandedIndex === (start + index) ? 'expanding' : ''}`}
-                  >
-                    <BenchmarkCard 
-                      {...benchmark}
-                      position={{ x: 0, y: 0 }}
-                      onExpand={(expanded) => setExpandedIndex(expanded ? (start + index) : null)}
-                    />
-                  </div>
-                ))}
-              </div>
-              {rowIndex === 2 && <div className="benchmark-wall__grid-gap" />}
-            </>
-          );
-        })}
+      <div className="benchmark-wall__grid" role="grid">
+        {gridContent}
       </div>
     </div>
   );
