@@ -1,0 +1,74 @@
+[
+  {
+    "title": "MLE-Bench",
+    "description": "A benchmark for measuring how well AI agents perform at machine learning engineering.",
+    "organization": {
+      "icon": "/data/logo/OpenAI.png", 
+      "name": "OpenAI"
+    },
+    "benchmarkUrl": "https://example.com/mle-bench"
+  },
+  {
+    "title": "MMLU Benchmark",
+    "description": "A benchmark that evaluates language models across 57 subjects including mathematics, history, law, and more to test their knowledge and reasoning abilities.",
+    "organization": {
+      "icon": "/data/logo/OpenAI.png",
+      "name": "EleutherAI"
+    },
+    "benchmarkUrl": "https://example.com/mmlu"
+  },
+  {
+    "title": "BIG-bench",
+    "description": "A collaborative benchmark with over 200 tasks to measure language models' capabilities in areas like reasoning, knowledge, and problem solving.",
+    "organization": {
+      "icon": "/data/logo/OpenAI.png",
+      "name": "Google Research"
+    },
+    "benchmarkUrl": "https://example.com/big-bench"
+  },
+  {
+    "title": "BIG-bench",
+    "description": "A collaborative benchmark with over 200 tasks to measure language models' capabilities in areas like reasoning, knowledge, and problem solving.",
+    "organization": {
+      "icon": "/data/logo/OpenAI.png",
+      "name": "Google Research"
+    },
+    "benchmarkUrl": "https://example.com/big-bench"
+  },
+  {
+    "title": "BIG-bench",
+    "description": "A collaborative benchmark with over 200 tasks to measure language models' capabilities in areas like reasoning, knowledge, and problem solving.",
+    "organization": {
+      "icon": "/data/logo/OpenAI.png",
+      "name": "Google Research"
+    },
+    "benchmarkUrl": "https://example.com/big-bench"
+  },
+  {
+    "title": "BIG-bench",
+    "description": "A collaborative benchmark with over 200 tasks to measure language models' capabilities in areas like reasoning, knowledge, and problem solving.",
+    "organization": {
+      "icon": "/data/logo/OpenAI.png",
+      "name": "Google Research"
+    },
+    "benchmarkUrl": "https://example.com/big-bench"
+  },
+  {
+    "title": "BIG-bench",
+    "description": "A collaborative benchmark with over 200 tasks to measure language models' capabilities in areas like reasoning, knowledge, and problem solving.",
+    "organization": {
+      "icon": "/data/logo/OpenAI.png",
+      "name": "Google Research"
+    },
+    "benchmarkUrl": "https://example.com/big-bench"
+  },
+  {
+    "title": "BIG-bench",
+    "description": "A collaborative benchmark with over 200 tasks to measure language models' capabilities in areas like reasoning, knowledge, and problem solving.",
+    "organization": {
+      "icon": "/data/logo/OpenAI.png",
+      "name": "Google Research"
+    },
+    "benchmarkUrl": "https://example.com/big-bench"
+  }
+]

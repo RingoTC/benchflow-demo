@@ -1,7 +1,3 @@
 {
-  "welcome": "Welcome to React",
-  "description": "Edit src/App.tsx and save to reload",
-  "learn": "Learn React",
-  "language": "Language",
-  "switchLanguage": "Switch to Chinese"
+    "FindTheRightBenchmark": "Find the right benchmark"
 } 

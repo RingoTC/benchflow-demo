@@ -1,0 +1,38 @@
+.benchmark-wall {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.benchmark-wall__item {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.benchmark-wall__item.expanding {
+  z-index: 1000;
+}
+
+.benchmark-wall__loading,
+.benchmark-wall__error {
+  text-align: center;
+  padding: 48px;
+  font-size: 18px;
+  color: #666;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.benchmark-wall__error {
+  color: #dc3545;
+}
+
+.benchmark-card__organization-icon{
+  background-color: #fff;
+}
