@@ -121,6 +121,7 @@
   font-size: 18px;
   line-height: inherit;
   display: block;
+  font-family:Arial, Helvetica, sans-serif
 }
 
 .benchmark-card__link::before {
