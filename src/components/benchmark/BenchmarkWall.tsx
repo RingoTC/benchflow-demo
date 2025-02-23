@@ -82,7 +82,7 @@ const BenchmarkWall: React.FC = () => {
   useEffect(() => {
     const fetchBenchmarks = async () => {
       try {
-        const response = await fetch('/data/greatAnimationCards.json');
+        const response = await fetch('./data/greatAnimationCards.json');
         if (!response.ok) {
           throw new Error(t('FetchError'));
         }
