@@ -43,7 +43,8 @@
       "icon": "/data/logo/OpenAI.png",
       "name": "Tsinghua University"
     },
-    "benchmarkUrl": "https://github.com/THUDM/AgentBench"
+    "benchmarkUrl": "https://github.com/THUDM/AgentBench",
+    "highlight": true
   },
   {
     "title": "Tau (𝜏)-Bench",
@@ -52,7 +53,8 @@
       "icon": "/data/logo/OpenAI.png",
       "name": "Microsoft Research"
     },
-    "benchmarkUrl": "https://github.com/microsoft/tau-bench"
+    "benchmarkUrl": "https://github.com/microsoft/tau-bench",
+    "highlight": true
   },
   {
     "title": "BIRD-SQL",
@@ -268,7 +270,8 @@
       "icon": "/data/logo/OpenAI.png",
       "name": "Allen Institute for AI"
     },
-    "benchmarkUrl": "https://allenai.org/data/arc"
+    "benchmarkUrl": "https://allenai.org/data/arc",
+    "highlight": true
   },
   {
     "title": "HellaSwag",

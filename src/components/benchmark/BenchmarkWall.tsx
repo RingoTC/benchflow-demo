@@ -71,23 +71,26 @@ const BenchmarkWall: React.FC = () => {
           const rowItems = benchmarks.slice(start, end);
 
           return (
-            <div 
-              key={`row-${rowIndex}`}
-              className={`benchmark-wall__row${rowIndex === 1 || rowIndex === 4 ? '--wide' : ''}`}
-            >
-              {rowItems.map((benchmark, index) => (
-                <div
-                  key={`${benchmark.title}-${start + index}`}
-                  className={`benchmark-wall__item ${expandedIndex === (start + index) ? 'expanding' : ''}`}
-                >
-                  <BenchmarkCard 
-                    {...benchmark}
-                    position={{ x: 0, y: 0 }}
-                    onExpand={(expanded) => setExpandedIndex(expanded ? (start + index) : null)}
-                  />
-                </div>
-              ))}
-            </div>
+            <>
+              <div 
+                key={`row-${rowIndex}`}
+                className={`benchmark-wall__row${rowIndex === 1 || rowIndex === 4 ? '--wide' : ''}`}
+              >
+                {rowItems.map((benchmark, index) => (
+                  <div
+                    key={`${benchmark.title}-${start + index}`}
+                    className={`benchmark-wall__item ${expandedIndex === (start + index) ? 'expanding' : ''}`}
+                  >
+                    <BenchmarkCard 
+                      {...benchmark}
+                      position={{ x: 0, y: 0 }}
+                      onExpand={(expanded) => setExpandedIndex(expanded ? (start + index) : null)}
+                    />
+                  </div>
+                ))}
+              </div>
+              {rowIndex === 2 && <div className="benchmark-wall__grid-gap" />}
+            </>
           );
         })}
       </div>

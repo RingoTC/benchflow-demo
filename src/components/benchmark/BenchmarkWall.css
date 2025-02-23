@@ -2,7 +2,15 @@
   position: relative;
   width: 100%;
   height: 100vh;
-  background-color: #fff;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 240, 245, 0.95) 25%,
+    rgba(240, 255, 250, 0.95) 50%,
+    rgba(245, 245, 255, 0.95) 75%,
+    rgba(255, 255, 255, 0.95) 100%
+  );
+  backdrop-filter: blur(20px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,28 +20,28 @@
 .benchmark-wall__grid {
   display: flex;
   flex-direction: column;
-  gap: 32px;
-  width: 1200px;
+  gap: 0px;
   position: relative;
 }
 
-/* 普通行 - 第1、3、4、6行 */
+.benchmark-wall__grid-gap {
+  height: 120px;
+}
+
 .benchmark-wall__row {
   display: flex;
   gap: 24px;
   justify-content: center;
   align-items: center;
-  min-height: 60px;
   position: relative;
+  min-height: 60px;
 }
 
-/* 宽行 - 第2、5行 */
 .benchmark-wall__row--wide {
   display: flex;
   gap: 24px;
   justify-content: center;
   align-items: center;
-  min-height: 60px;
   position: relative;
 }
 
@@ -46,11 +54,16 @@
   text-align: center;
   pointer-events: none;
   width: 100%;
+  font-family: "Mona Sans", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
 }
 
 .benchmark-wall__title span {
   font-size: 48px;
-  font-weight: bold;
   color: #000;
   white-space: nowrap;
 }
@@ -89,26 +102,4 @@
 
 .benchmark-card__organization-icon {
   background-color: #fff;
-}
-
-@media (max-width: 768px) {
-  .benchmark-wall {
-    padding: 20px;
-  }
-
-  .benchmark-wall__grid {
-    gap: 16px;
-    padding-top: 80px;
-    padding-bottom: 80px;
-  }
-
-  .benchmark-wall__row,
-  .benchmark-wall__row--wide {
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 12px;
-  }
-
-  .benchmark-wall__title span {
-    font-size: 32px;
-  }
 }
