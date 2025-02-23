@@ -1,51 +1,16 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import BenchmarkCard, { BenchmarkCardProps } from './BenchmarkCard';
 import './BenchmarkWall.css';
 
-interface BenchmarkWithPosition extends Omit<BenchmarkCardProps, 'position'> {
-  position: {
-    x: number;
-    y: number;
-  };
-}
+type Benchmark = Omit<BenchmarkCardProps, 'position'>;
 
 const BenchmarkWall: React.FC = () => {
-  const [benchmarks, setBenchmarks] = useState<BenchmarkWithPosition[]>([]);
+  const { t } = useTranslation();
+  const [benchmarks, setBenchmarks] = useState<Benchmark[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
-  const wallRef = useRef<HTMLDivElement>(null);
-
-  const generateSafePosition = (index: number) => {
-    // Define safe margins to ensure cards can expand without hitting edges
-    const MARGIN = 20; // Increased margin to ensure space for expansion
-    
-    // Divide the wall into a grid
-    const ROWS = 3;
-    const COLS = 4;
-    
-    // Calculate base position
-    const row = Math.floor(index / COLS);
-    const col = index % COLS;
-    
-    // Calculate safe zones that account for card expansion
-    const safeZoneWidth = (100 - 2 * MARGIN) / (COLS - 1);
-    const safeZoneHeight = (100 - 2 * MARGIN) / (ROWS - 1);
-    
-    // Position within safe zones
-    const x = MARGIN + (safeZoneWidth * col);
-    const y = MARGIN + (safeZoneHeight * row);
-    
-    // Add small random offset within safe limits
-    const maxOffset = 5; // Reduced random offset to stay within safe zones
-    const randomX = x + (Math.random() - 0.5) * maxOffset;
-    const randomY = y + (Math.random() - 0.5) * maxOffset;
-
-    return {
-      x: Math.max(MARGIN, Math.min(100 - MARGIN, randomX)),
-      y: Math.max(MARGIN, Math.min(100 - MARGIN, randomY))
-    };
-  };
 
   useEffect(() => {
     const fetchBenchmarks = async () => {
@@ -54,14 +19,8 @@ const BenchmarkWall: React.FC = () => {
         if (!response.ok) {
           throw new Error('Failed to fetch benchmarks');
         }
-        const data: Omit<BenchmarkCardProps, 'position'>[] = await response.json();
-        
-        const benchmarksWithPosition = data.map((benchmark, index) => ({
-          ...benchmark,
-          position: generateSafePosition(index)
-        }));
-
-        setBenchmarks(benchmarksWithPosition);
+        const data: Benchmark[] = await response.json();
+        setBenchmarks(data);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'An error occurred');
       } finally {
@@ -80,25 +39,58 @@ const BenchmarkWall: React.FC = () => {
     return <div className="benchmark-wall__error">{error}</div>;
   }
 
+  // 计算每行应该显示的元素数量
+  const baseItemsPerRow = Math.floor(benchmarks.length / 6); // 基础每行元素数
+  const extraItemsForWideRow = Math.floor(baseItemsPerRow * 1.33); // 宽行的元素数（增加33%）
+
+  // 计算每行的起始和结束索引
+  const getRowBounds = (rowIndex: number) => {
+    let startIndex = 0;
+    let currentIndex = 0;
+
+    for (let i = 0; i < rowIndex; i++) {
+      currentIndex += (i === 1 || i === 4) ? extraItemsForWideRow : baseItemsPerRow;
+    }
+    startIndex = currentIndex;
+    currentIndex += (rowIndex === 1 || rowIndex === 4) ? extraItemsForWideRow : baseItemsPerRow;
+
+    return {
+      start: startIndex,
+      end: Math.min(currentIndex, benchmarks.length)
+    };
+  };
+
   return (
-    <div className="benchmark-wall" ref={wallRef}>
-      {benchmarks.map((benchmark, index) => (
-        <div
-          key={`${benchmark.title}-${index}`}
-          className={`benchmark-wall__item ${expandedIndex === index ? 'expanding' : ''}`}
-          style={{
-            left: `${benchmark.position.x}%`,
-            top: `${benchmark.position.y}%`,
-            transform: 'translate(-50%, -50%)' // Center the card at its position
-          }}
-        >
-          <BenchmarkCard 
-            {...benchmark} 
-            position={benchmark.position}
-            onExpand={(expanded) => setExpandedIndex(expanded ? index : null)}
-          />
-        </div>
-      ))}
+    <div className="benchmark-wall">
+      <div className="benchmark-wall__title">
+        <span>{t('FindTheRightBenchmark')}</span>
+      </div>
+      <div className="benchmark-wall__grid">
+        {Array.from({ length: 6 }, (_, rowIndex) => {
+          const { start, end } = getRowBounds(rowIndex);
+          const rowItems = benchmarks.slice(start, end);
+
+          return (
+            <div 
+              key={`row-${rowIndex}`}
+              className={`benchmark-wall__row${rowIndex === 1 || rowIndex === 4 ? '--wide' : ''}`}
+            >
+              {rowItems.map((benchmark, index) => (
+                <div
+                  key={`${benchmark.title}-${start + index}`}
+                  className={`benchmark-wall__item ${expandedIndex === (start + index) ? 'expanding' : ''}`}
+                >
+                  <BenchmarkCard 
+                    {...benchmark}
+                    position={{ x: 0, y: 0 }}
+                    onExpand={(expanded) => setExpandedIndex(expanded ? (start + index) : null)}
+                  />
+                </div>
+              ))}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };

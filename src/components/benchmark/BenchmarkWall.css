@@ -2,14 +2,68 @@
   position: relative;
   width: 100%;
   height: 100vh;
-  overflow: hidden;
   background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.benchmark-wall__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 1200px;
+  position: relative;
+}
+
+/* 普通行 - 第1、3、4、6行 */
+.benchmark-wall__row {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
+  min-height: 60px;
+  position: relative;
+}
+
+/* 宽行 - 第2、5行 */
+.benchmark-wall__row--wide {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
+  min-height: 60px;
+  position: relative;
+}
+
+.benchmark-wall__title {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
+  pointer-events: none;
+  width: 100%;
+}
+
+.benchmark-wall__title span {
+  font-size: 48px;
+  font-weight: bold;
+  color: #000;
+  white-space: nowrap;
 }
 
 .benchmark-wall__item {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  z-index: 1;
+  width: fit-content;
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* Remove the placeholder element as we're using ::before in the card itself */
+.benchmark-wall__item::before {
+  display: none;
 }
 
 .benchmark-wall__item.expanding {
@@ -33,6 +87,28 @@
   color: #dc3545;
 }
 
-.benchmark-card__organization-icon{
+.benchmark-card__organization-icon {
   background-color: #fff;
+}
+
+@media (max-width: 768px) {
+  .benchmark-wall {
+    padding: 20px;
+  }
+
+  .benchmark-wall__grid {
+    gap: 16px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .benchmark-wall__row,
+  .benchmark-wall__row--wide {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 12px;
+  }
+
+  .benchmark-wall__title span {
+    font-size: 32px;
+  }
 }

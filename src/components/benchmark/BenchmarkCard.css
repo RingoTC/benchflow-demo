@@ -8,56 +8,62 @@
 .benchmark-card {
   position: relative;
   width: fit-content;
-  background: #1a1a1a;
+  background: #161c2c;
   border-radius: 40px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  transform-origin: center;
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-  will-change: transform, width, border-radius, padding, box-shadow;
-  overflow: hidden;
+  will-change: transform;
+  overflow: visible;
   padding: 2px 6px 2px 6px;
 }
 
-/* Direction-specific transform origins */
-.benchmark-card.expand-right-top {
-  transform-origin: top left;
+/* 创建一个包装容器来维持原始尺寸 */
+.benchmark-card-container {
+  position: relative;
+  display: inline-block; /* 使容器适应内容大小 */
+  width: auto;
+  height: auto;
 }
 
-.benchmark-card.expand-right-bottom {
-  transform-origin: bottom right;
-}
-
-.benchmark-card.expand-left-top {
-  transform-origin: top left;
-}
-
-.benchmark-card.expand-left-bottom {
-  transform-origin: bottom left;
-}
-
+/* 移除所有transform origin相关样式 */
 .benchmark-card.expanded {
-  width: 280px;
-  transform: scale(1);
-  z-index: 100;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-  padding: 12px 12px 0px 12px;
-  border-radius: 12px;
+  /* 移除position: fixed，保持原始位置 */
+  z-index: 1000;
 }
 
-.benchmark-card.expanded::before {
+/* 展开的卡片内容覆盖在原始卡片上 */
+.benchmark-card__expanded-content {
   display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 280px;
+  background: #161c2c;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  padding: 12px;
+  z-index: 1001;
+}
+
+.benchmark-card.expanded .benchmark-card__content {
+  visibility: hidden;
+}
+
+.benchmark-card.expanded .benchmark-card__expanded-content {
+  display: block;
 }
 
 .benchmark-card__content {
   width: 100%;
 }
 
-.benchmark-card__header {
+/* .benchmark-card__header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
+} */
 
 .benchmark-card__title {
   font-size: 14px;
@@ -80,7 +86,7 @@
   text-decoration: none;
 }
 
-.benchmark-card__link::after {
+benchmark-card__expanded-content .benchmark-card__link::after {
   content: "↗";
   font-size: 18px;
   line-height: inherit;
@@ -89,13 +95,6 @@
 
 .benchmark-card.expanded .benchmark-card__link {
   display: block;
-}
-
-.benchmark-card.expanded .benchmark-card__title {
-  padding-right: 8px;
-  max-width: calc(100% - 32px);
-  white-space: normal;
-  word-wrap: break-word;
 }
 
 .benchmark-card__arrow {
@@ -124,6 +123,7 @@
   transition: opacity 0.3s ease 0.15s,
               transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s;
   word-wrap: break-word;
+  text-wrap: balance;
 }
 
 .expanded .benchmark-card__description {
@@ -161,4 +161,17 @@
 
 .benchmark-card__link:hover {
   color: white;
+}
+
+.benchmark-card__text-link {
+  color: #161c2c;
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 24px;
+  transition: color 0.3s ease;
+}
+
+.benchmark-card__text-link:hover {
+  color: #4a5568;
+  text-decoration: underline;
 } 
